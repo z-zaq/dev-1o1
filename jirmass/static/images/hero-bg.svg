@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 600" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <!-- Gradients: Blue Theme -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080e21"/>
+      <stop offset="40%" stop-color="#0f1e40"/>
+      <stop offset="100%" stop-color="#060a17"/>
+    </linearGradient>
+
+    <!-- Vibrant Brand Red Ribbon Gradient -->
+    <linearGradient id="redRibbon1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff334b" stop-opacity="0.9"/>
+      <stop offset="45%" stop-color="#d3222a" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#8b000a" stop-opacity="0.7"/>
+    </linearGradient>
+    
+    <linearGradient id="redRibbon2" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ff5263" stop-opacity="0.75"/>
+      <stop offset="60%" stop-color="#d3222a" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#4a0005" stop-opacity="0.2"/>
+    </linearGradient>
+
+    <!-- Royal Water Blue Ribbon Gradient -->
+    <linearGradient id="blueRibbon1" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7" stop-opacity="0.85"/>
+      <stop offset="50%" stop-color="#0369a1" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#0c4a6e" stop-opacity="0.5"/>
+    </linearGradient>
+
+    <linearGradient id="blueCyanGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.8"/>
+      <stop offset="70%" stop-color="#0284c7" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#0369a1" stop-opacity="0.1"/>
+    </linearGradient>
+
+    <!-- Translucent White Film Ribbons (Packaging Film Effect) -->
+    <linearGradient id="whiteFilm1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.65"/>
+      <stop offset="30%" stop-color="#ffffff" stop-opacity="0.35"/>
+      <stop offset="70%" stop-color="#f1f5f9" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.4"/>
+    </linearGradient>
+
+    <linearGradient id="whiteFilm2" x1="100%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.7"/>
+      <stop offset="50%" stop-color="#e2e8f0" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.05"/>
+    </linearGradient>
+
+    <!-- Soft Radial Light Glows -->
+    <radialGradient id="glowWhite" cx="30%" cy="40%" r="40%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="glowRed" cx="80%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#d3222a" stop-opacity="0.35"/>
+      <stop offset="60%" stop-color="#d3222a" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#d3222a" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="glowBlue" cx="20%" cy="70%" r="50%">
+      <stop offset="0%" stop-color="#0284c7" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#0284c7" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Polymer Hexagonal Lattice Pattern -->
+    <pattern id="hexGrid" width="40" height="69.282" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 20 11.547 L 0 0 L 0 23.094 L 20 34.641 L 40 23.094 Z M 0 34.641 L 20 46.188 L 40 34.641 L 40 57.735 L 20 69.282 L 0 57.735 Z" fill="none" stroke="#38bdf8" stroke-width="0.6" stroke-opacity="0.12"/>
+    </pattern>
+  </defs>
+
+  <!-- 1. Deep Base Background -->
+  <rect width="1440" height="600" fill="url(#bgGradient)"/>
+
+  <!-- 2. Ambient Color Glows (White, Red, Blue) -->
+  <rect width="1440" height="600" fill="url(#glowBlue)"/>
+  <rect width="1440" height="600" fill="url(#glowRed)"/>
+  <rect width="1440" height="600" fill="url(#glowWhite)"/>
+
+  <!-- 3. Technical Hexagonal Lattice Layer -->
+  <rect width="1440" height="600" fill="url(#hexGrid)"/>
+
+  <!-- 4. Dynamic Flowing Blue Waves (Water Motion) -->
+  <path d="M -100 480 Q 250 560 600 420 T 1300 380 Q 1480 370 1600 410 L 1600 650 L -100 650 Z" fill="url(#blueRibbon1)"/>
+  <path d="M -80 320 Q 280 200 680 360 T 1400 240 Q 1520 230 1600 270 L 1600 450 Q 1350 400 950 490 T -80 500 Z" fill="url(#blueCyanGlow)" opacity="0.6"/>
+
+  <!-- 5. Sweeping Brand Red Curves (Manufacturing Energy) -->
+  <path d="M -50 180 Q 320 80 720 280 T 1500 160 L 1500 230 Q 1100 360 650 220 T -50 250 Z" fill="url(#redRibbon1)"/>
+  <path d="M 400 600 Q 750 420 1150 480 T 1550 360 L 1550 430 Q 1200 550 800 520 T 400 650 Z" fill="url(#redRibbon2)"/>
+
+  <!-- 6. Translucent Pure White Polymer Film Sheets (Packaging Rolls) -->
+  <path d="M -60 220 Q 350 130 800 300 T 1520 190 L 1520 215 Q 980 380 520 240 T -60 245 Z" fill="url(#whiteFilm1)"/>
+  <path d="M 100 520 Q 500 340 920 430 T 1550 310 L 1550 335 Q 1100 490 680 410 T 100 545 Z" fill="url(#whiteFilm2)"/>
+
+  <!-- 7. Fine Highlight Accent Lines (Crisp White and Cyan Film Edges) -->
+  <path d="M -50 180 Q 320 80 720 280 T 1500 160" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-opacity="0.75"/>
+  <path d="M -60 220 Q 350 130 800 300 T 1520 190" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-opacity="0.8"/>
+  <path d="M 400 600 Q 750 420 1150 480 T 1550 360" fill="none" stroke="#ff6b7b" stroke-width="2" stroke-opacity="0.7"/>
+  <path d="M 100 520 Q 500 340 920 430 T 1550 310" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-opacity="0.6"/>
+
+  <!-- 8. Luminous White & Cyan Sparkles (Pure Water Glints) -->
+  <g id="sparkles">
+    <!-- Sparkle 1 -->
+    <polygon points="320,80 322,72 324,80 332,82 324,84 322,92 320,84 312,82" fill="#ffffff" opacity="0.9"/>
+    <circle cx="322" cy="82" r="2" fill="#38bdf8" opacity="0.8"/>
+
+    <!-- Sparkle 2 -->
+    <polygon points="720,280 722,270 724,280 734,282 724,284 722,294 720,284 710,282" fill="#ffffff" opacity="0.95"/>
+    <circle cx="722" cy="282" r="2.5" fill="#ffffff" opacity="0.9"/>
+
+    <!-- Sparkle 3 -->
+    <polygon points="1150,190 1152,183 1154,190 1161,192 1154,194 1152,201 1150,194 1143,192" fill="#ff8591" opacity="0.85"/>
+
+    <!-- Sparkle 4 -->
+    <polygon points="920,430 922,422 924,430 932,432 924,434 922,442 920,434 912,432" fill="#ffffff" opacity="0.8"/>
+
+    <!-- Sparkle 5 -->
+    <polygon points="550,210 551,205 553,210 558,211 553,213 551,218 550,213 544,211" fill="#38bdf8" opacity="0.85"/>
+  </g>
+</svg>

@@ -1,24 +1,276 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Jirmass Plastics</title>
-        <link rel="stylesheet" href="/static/css/style.css">
-    </head>
-    <body>
-        <header>
-            <h1>Jirmass Plastics</h1>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.Title}}</title>
+    <link rel="icon" type="image/svg+xml" href="/static/images/logo-icon.svg">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="/" class="brand" title="Jirmass Plastics Home">
+                <img src="/static/images/logo.svg" alt="Jirmass Plastics Logo" class="brand-logo-img" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';">
+                <div class="brand-fallback-logo" style="display:none;">
+                    <div class="brand-icon">J</div>
+                    <div class="brand-title">Jirmass Plastics</div>
+                </div>
+            </a>
             <nav>
-                <a href="/">Home</a>
+                <a href="/" class="active">Home</a>
+                <a href="#direct-order" class="nav-order-btn">Order Now</a>
                 <a href="/about">About</a>
                 <a href="/contact">Contact</a>
+                <div class="admin-badge">
+                    <span class="admin-badge-dot"></span>
+                    <span>Admin Offline • Bot Active</span>
+                </div>
             </nav>
-        </header>
-        <section>
-            <h2>Define Your Quality</h2>
-            <p>
-                Premium African Plastics
-            </p>
-            <button>Shop Now</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>High-Strength Water Packing Rolls & Sachet Bags</h1>
+                <p>Specialized manufacturer of food-grade virgin LDPE water packaging film rolls and heavy-duty outer packing bags. Engineered for automated form-fill-seal machines with zero leakage.</p>
+                <div class="hero-actions">
+                    <a href="#direct-order" class="btn btn-primary">Place Direct Order</a>
+                    <button type="button" onclick="openJirmassChat('What are the specifications for water packing rolls?')" class="btn btn-secondary">💬 Chat With Assistant</button>
+                </div>
+            </div>
+            <div class="hero-card">
+                <h3>🤖 24/7 Automated Order Desk</h3>
+                <p>Our sales administration team is currently offline, but you can place your direct order below or chat with our automated bot for instant roll specs, bag bundles, and callbacks.</p>
+                <a href="#direct-order" class="btn btn-primary" style="width: 100%; text-align: center;">Direct Order Form ↓</a>
+            </div>
         </section>
-    </body>
+
+        <!-- Two Core Products Showcase -->
+        <section>
+            <div class="section-header">
+                <h2>Our Water Packaging Products</h2>
+                <p>We manufacture exclusively for pure water factories and automated sachet packaging plants.</p>
+            </div>
+            <div class="products-overview">
+                <!-- Product 1: Rolls -->
+                <div class="product-overview-card">
+                    <span class="product-overview-badge">Machine Film</span>
+                    <h3>💧 Water Packing Rolls</h3>
+                    <p>High-tensile virgin LDPE film calibrated specifically for automated form-fill-seal pure water packaging machines.</p>
+                    <ul class="product-spec-list">
+                        <li>Standard 320mm roll width (for 500ml / 600ml sachets)</li>
+                        <li>High-clarity virgin food-grade polymer (zero odor, non-toxic)</li>
+                        <li>High-definition custom rotogravure branding or plain clear rolls</li>
+                        <li>Strong horizontal and vertical heat sealability with zero burst rate</li>
+                        <li>Available by roll count or bulk weight (kg)</li>
+                    </ul>
+                    <a href="#direct-order" class="btn btn-primary" onclick="selectProductType('Water Packing Rolls')">Order Packing Rolls</a>
+                </div>
+
+                <!-- Product 2: Outer Bags -->
+                <div class="product-overview-card">
+                    <span class="product-overview-badge">Bundling Sacks</span>
+                    <h3>🛍️ Water Packing Bags</h3>
+                    <p>Heavy-duty outer bundling sacks engineered to securely bag and transport 20 sachets of pure water without tearing.</p>
+                    <ul class="product-spec-list">
+                        <li>High puncture resistance and tear-proof bottom seals</li>
+                        <li>Engineered to hold and transport 20 water sachets per bag</li>
+                        <li>Available in Plain and Custom Branded printing</li>
+                        <li>Built for rough handling, commercial logistics, and stacking</li>
+                        <li>Packaged in bundles (500 bags, 1,000 bags, or 5,000 bag bales)</li>
+                    </ul>
+                    <a href="#direct-order" class="btn btn-primary" onclick="selectProductType('Water Packing Bags')">Order Packing Bags</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Manufacturing Features -->
+        <section class="features-grid">
+            <div class="feature-box">
+                <div class="icon">🛡️</div>
+                <h3>Leak-Proof Sealing</h3>
+                <p>Extruded from 100% virgin LDPE resins for maximum seal integrity under high machine packaging pressures.</p>
+            </div>
+            <div class="feature-box">
+                <div class="icon">🖨️</div>
+                <h3>High-Definition Printing</h3>
+                <p>Precision multi-color rotogravure printing for factory brand logos, regulatory NAFDAC license numbers, and batch dates.</p>
+            </div>
+            <div class="feature-box">
+                <div class="icon">⚙️</div>
+                <h3>320mm Machine Calibrated</h3>
+                <p>Uniform roll gauge and smooth slip agents ensure jam-free feeding through standard automated sachet packaging machines.</p>
+            </div>
+            <div class="feature-box">
+                <div class="icon">⚡</div>
+                <h3>Fast Factory Dispatch</h3>
+                <p>Direct manufacturer supply with reliable turnaround times and regional delivery to water factories.</p>
+            </div>
+        </section>
+
+        <!-- Direct Order Section -->
+        <section id="direct-order" class="order-section">
+            <div class="order-section-header">
+                <h2>Direct Factory Order Placement</h2>
+                <p>Order water packing rolls and outer bags directly from our production floor. Submit your details below and our sales team will be alerted immediately via email and webhook.</p>
+            </div>
+
+            <form id="direct-order-form">
+                <div class="order-form-grid">
+                    <div class="form-group">
+                        <label for="order-product-type">Product Needed *</label>
+                        <select id="order-product-type" class="form-control" required>
+                            <option value="Water Packing Rolls">💧 Water Packing Rolls Only</option>
+                            <option value="Water Packing Bags">🛍️ Water Packing Bags Only</option>
+                            <option value="Both (Rolls & Bags)" selected>📦 Both (Water Packing Rolls & Outer Bags)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="order-print-type">Printing & Branding *</label>
+                        <select id="order-print-type" class="form-control" required>
+                            <option value="Plain / Unprinted">Plain / Unprinted</option>
+                            <option value="Custom Printed / Branded" selected>Custom Printed / Branded</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="order-rolls-qty">Quantity of Rolls Needed</label>
+                        <input type="text" id="order-rolls-qty" class="form-control" placeholder="e.g. 20 Rolls or 500 kg">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="order-bags-qty">Quantity of Packing Bags Needed</label>
+                        <input type="text" id="order-bags-qty" class="form-control" placeholder="e.g. 50 Bundles or 2,500 Bags">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="order-company-name">Pure Water Factory / Brand Name *</label>
+                        <input type="text" id="order-company-name" class="form-control" placeholder="e.g. Oasis Pure Water Ltd" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="order-customer-name">Contact Person Full Name *</label>
+                        <input type="text" id="order-customer-name" class="form-control" placeholder="e.g. Samuel Adebayo" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="order-phone">Phone / WhatsApp Number *</label>
+                        <input type="text" id="order-phone" class="form-control" placeholder="+234 800 123 4567" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="order-email">Email Address</label>
+                        <input type="email" id="order-email" class="form-control" placeholder="samuel@waterfactory.com">
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="order-address">Delivery / Factory Address *</label>
+                        <input type="text" id="order-address" class="form-control" placeholder="Factory Address, City, State" required>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="order-notes">Additional Notes / Print Details</label>
+                        <textarea id="order-notes" class="form-control" placeholder="Specify roll thickness (e.g. 60–75 microns), artwork status, delivery urgency, etc..."></textarea>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.95rem; font-size: 1.05rem;">Submit Direct Order & Alert Sales</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <!-- Order Confirmation Modal -->
+    <div id="order-confirmation-modal" class="modal-overlay">
+        <div class="modal-card">
+            <span style="font-size: 3rem;">🎉</span>
+            <h2>Order Placed Successfully!</h2>
+            <p class="sub">Order Reference: <strong id="conf-order-num">WTR-0000</strong></p>
+            <div class="order-confirmation-box">
+                <p><strong>Status:</strong> Priority Order Logged</p>
+                <p style="margin-top: 0.6rem; font-size: 0.9rem; color: var(--text-muted);">
+                    ⚡ <strong>Sales Alert Dispatched:</strong> Since our administrative staff is currently offline, our automated system has dispatched an instant alert via email and webhook. A representative will contact you via WhatsApp or phone to confirm your roll/bag specifications and dispatch invoice.
+                </p>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="document.getElementById('order-confirmation-modal').classList.remove('active')" style="width: 100%;">Close & Continue Browsing</button>
+        </div>
+    </div>
+
+    <!-- Floating Automated Customer Bot Widget -->
+    <div id="jirmass-chat-widget">
+        <button id="chat-toggle-btn" class="chat-toggle" title="Chat with Jirmass Automated Assistant">
+            <span>💬</span>
+            <span class="chat-toggle-dot"></span>
+        </button>
+        <div id="chat-window" class="chat-window hidden">
+            <div class="chat-header">
+                <div class="chat-header-info">
+                    <h3>Jirmass Water Packaging Bot</h3>
+                    <div class="chat-status">
+                        <span class="admin-badge-dot"></span>
+                        <span>Admin Away • Auto-Reply Active</span>
+                    </div>
+                </div>
+                <button id="chat-close-btn" class="chat-close-btn" aria-label="Close Chat">&times;</button>
+            </div>
+            <div id="chat-messages" class="chat-messages"></div>
+            <div class="chat-chips">
+                <button type="button" class="chip-btn" onclick="sendChatChip('Tell me about water packing rolls')">💧 Packing Rolls</button>
+                <button type="button" class="chip-btn" onclick="sendChatChip('Tell me about water packing bags')">🛍️ Packing Bags</button>
+                <button type="button" class="chip-btn" onclick="sendChatChip('How do I place a direct order?')">✍️ Direct Order</button>
+                <button type="button" class="chip-btn" onclick="sendChatChip('What are your delivery timelines?')">🚚 Delivery & Hours</button>
+            </div>
+            <form id="chat-form" class="chat-input-form">
+                <input type="text" id="chat-input" class="chat-input" placeholder="Ask about rolls, bags, or order..." autocomplete="off" required>
+                <button type="submit" class="chat-send-btn">Send</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>Jirmass Plastics</h4>
+                <p>Specialized manufacturers of virgin LDPE Water Packing Rolls and heavy-duty Water Packing Bags for pure water bottling factories.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <a href="/">Home</a>
+                <a href="#direct-order">Place Direct Order</a>
+                <a href="/about">About Manufacturing</a>
+                <a href="/contact">Contact Factory Sales</a>
+            </div>
+            <div class="footer-col">
+                <h4>Factory Operations</h4>
+                <p>Support Hours: Mon - Fri, 8AM - 5PM</p>
+                <p>Automated Order Desk: Active 24/7</p>
+                <p>Inquiries: sales@jirmassplastics.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; {{.CurrentYear}} Jirmass Plastics. Specialized Water Packaging Materials.</p>
+        </div>
+    </footer>
+
+    <script>
+        function selectProductType(type) {
+            const selectEl = document.getElementById("order-product-type");
+            if (selectEl) {
+                for (let i = 0; i < selectEl.options.length; i++) {
+                    if (selectEl.options[i].value.includes(type)) {
+                        selectEl.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="/static/js/order.js"></script>
+    <script src="/static/js/bot.js"></script>
+</body>
 </html>

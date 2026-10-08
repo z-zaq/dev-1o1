@@ -1,24 +1,165 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Contact</title>
-        <link rel="stylesheet" href="/static/css/style.css">
-    </head>
-    <body>
-        <h1>Contact Us</h1>
-        <form>
-            <input
-            type="text"
-            placeholder="Your Name">
-            <br><br>
-            <input
-            type="email"
-            placeholder="Your Email">
-            <br><br>
-            <textarea
-            placeholder="Message"></textarea>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.Title}}</title>
+    <link rel="icon" type="image/svg+xml" href="/static/images/logo-icon.svg">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="/" class="brand" title="Jirmass Plastics Home">
+                <img src="/static/images/logo.svg" alt="Jirmass Plastics Logo" class="brand-logo-img" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';">
+                <div class="brand-fallback-logo" style="display:none;">
+                    <div class="brand-icon">J</div>
+                    <div class="brand-title">Jirmass Plastics</div>
+                </div>
+            </a>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/#direct-order" class="nav-order-btn">Order Now</a>
+                <a href="/about">About</a>
+                <a href="/contact" class="active">Contact</a>
+                <div class="admin-badge">
+                    <span class="admin-badge-dot"></span>
+                    <span>Admin Offline • Bot Active</span>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-        </form>
-        <a href="/">Back Home</a>
-    </body>
+    <main>
+        <div class="section-header">
+            <h2>Contact Factory Sales & Production Desk</h2>
+            <p>Connect with our sales team regarding water packing rolls, outer bags, custom cylinder engraving, and bulk orders.</p>
+        </div>
+
+        {{if .FlashMessage}}
+        <div class="alert alert-success">
+            <strong>✓ Message Received:</strong> {{.FlashMessage}}
+        </div>
+        {{end}}
+
+        <div class="contact-container">
+            <div>
+                <h3 style="font-size: 1.3rem; margin-bottom: 1rem;">Direct Message to Factory Sales</h3>
+                <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem;">
+                    If the sales admin is offline, our automated system logs your request and alerts our managers immediately via email and webhook.
+                </p>
+
+                <form method="POST" action="/contact">
+                    <div class="form-group">
+                        <label for="name">Contact Person / Factory Name *</label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="e.g. Alhassan Danjuma (Crystal Waters)" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="sales@crystalwaters.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone / WhatsApp Number *</label>
+                        <input type="text" id="phone" name="phone" class="form-control" placeholder="+234 800 000 0000" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Packaging Specifications / Order Inquiry *</label>
+                        <textarea id="message" name="message" class="form-control" placeholder="Specify roll quantity (e.g. 50 rolls 320mm), outer bag bundles (e.g. 100 bundles), or new printing cylinder setup..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.85rem;">Send Message & Alert Sales</button>
+                </form>
+            </div>
+
+            <div>
+                <div style="background: var(--bg-light); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.75rem; margin-bottom: 1.5rem;">
+                    <h4 style="margin-bottom: 0.75rem; font-size: 1.1rem;">⚡ Need Immediate Roll or Bag Supply?</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.25rem;">
+                        You can place a direct factory order right on the homepage, or chat with our 24/7 automated bot for instant roll specs and quotes.
+                    </p>
+                    <a href="/#direct-order" class="btn btn-primary" style="width: 100%; margin-bottom: 0.75rem; text-align: center;">
+                        📦 Place Direct Order
+                    </a>
+                    <button type="button" onclick="openJirmassChat('I have an urgent roll order')" class="btn btn-secondary" style="background: var(--surface); color: var(--text-main); border: 1px solid var(--border); width: 100%;">
+                        💬 Launch Automated Bot
+                    </button>
+                </div>
+
+                <div style="background: var(--bg-light); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.75rem;">
+                    <h4 style="margin-bottom: 0.75rem; font-size: 1.1rem;">Production Plant & Dispatch Hub</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.5rem;">
+                        <strong>Logistics Hub:</strong> Industrial Plastics Zone, Plot 14 Commercial Avenue
+                    </p>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.5rem;">
+                        <strong>Dispatch Hours:</strong> Monday – Friday, 8:00 AM – 5:00 PM (GMT+1)
+                    </p>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">
+                        <strong>Automated Desk:</strong> Active 24/7 for direct water packaging inquiries
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Floating Automated Customer Bot Widget -->
+    <div id="jirmass-chat-widget">
+        <button id="chat-toggle-btn" class="chat-toggle" title="Chat with Jirmass Automated Assistant">
+            <span>💬</span>
+            <span class="chat-toggle-dot"></span>
+        </button>
+        <div id="chat-window" class="chat-window hidden">
+            <div class="chat-header">
+                <div class="chat-header-info">
+                    <h3>Jirmass Water Packaging Bot</h3>
+                    <div class="chat-status">
+                        <span class="admin-badge-dot"></span>
+                        <span>Admin Away • Auto-Reply Active</span>
+                    </div>
+                </div>
+                <button id="chat-close-btn" class="chat-close-btn" aria-label="Close Chat">&times;</button>
+            </div>
+            <div id="chat-messages" class="chat-messages"></div>
+            <div class="chat-chips">
+                <button type="button" class="chip-btn" onclick="sendChatChip('Tell me about water packing rolls')">💧 Packing Rolls</button>
+                <button type="button" class="chip-btn" onclick="sendChatChip('Tell me about water packing bags')">🛍️ Packing Bags</button>
+                <button type="button" class="chip-btn" onclick="sendChatChip('How do I place a direct order?')">✍️ Direct Order</button>
+                <button type="button" class="chip-btn" onclick="sendChatChip('What are your delivery timelines?')">🚚 Delivery & Hours</button>
+            </div>
+            <form id="chat-form" class="chat-input-form">
+                <input type="text" id="chat-input" class="chat-input" placeholder="Ask about rolls, bags, or order..." autocomplete="off" required>
+                <button type="submit" class="chat-send-btn">Send</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>Jirmass Plastics</h4>
+                <p>Specialized manufacturers of virgin LDPE Water Packing Rolls and heavy-duty Water Packing Bags for pure water bottling factories.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <a href="/">Home</a>
+                <a href="/#direct-order">Place Direct Order</a>
+                <a href="/about">About Manufacturing</a>
+                <a href="/contact">Contact Factory Sales</a>
+            </div>
+            <div class="footer-col">
+                <h4>Factory Operations</h4>
+                <p>Support Hours: Mon - Fri, 8AM - 5PM</p>
+                <p>Automated Order Desk: Active 24/7</p>
+                <p>Inquiries: sales@jirmassplastics.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; {{.CurrentYear}} Jirmass Plastics. Specialized Water Packaging Materials.</p>
+        </div>
+    </footer>
+
+    <script src="/static/js/bot.js"></script>
+</body>
 </html>

@@ -22,3 +22,13 @@ env/
 # OS
 .DS_Store
 Thumbs.db
+
+# Go
+jirmass/jirmass
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out

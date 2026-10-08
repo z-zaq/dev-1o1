@@ -1,14 +1,132 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>About</title>
-        <link rel="stylesheet" href="/static/css/style.css">
-    </head>
-    <body>
-        <h1>About Us</h1>
-        <p>
-            We create premium African plastics
-        </p>
-        <a href="/">Back Home</a>
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.Title}}</title>
+    <link rel="icon" type="image/svg+xml" href="/static/images/logo-icon.svg">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="/" class="brand" title="Jirmass Plastics Home">
+                <img src="/static/images/logo.svg" alt="Jirmass Plastics Logo" class="brand-logo-img" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';">
+                <div class="brand-fallback-logo" style="display:none;">
+                    <div class="brand-icon">J</div>
+                    <div class="brand-title">Jirmass Plastics</div>
+                </div>
+            </a>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/#direct-order" class="nav-order-btn">Order Now</a>
+                <a href="/about" class="active">About</a>
+                <a href="/contact">Contact</a>
+                <div class="admin-badge">
+                    <span class="admin-badge-dot"></span>
+                    <span>Admin Offline • Bot Active</span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="section-header">
+            <h2>About Jirmass Plastics</h2>
+            <p>Specialized film extrusion and outer packing bag manufacturing for the pure water industry.</p>
+        </div>
+
+        <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 2.5rem; margin-bottom: 2.5rem; box-shadow: var(--shadow);">
+            <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--primary);">Dedicated to Pure Water Packaging Excellence</h3>
+            <p style="margin-bottom: 1rem; color: var(--text-muted); font-size: 1.05rem;">
+                At Jirmass Plastics, we focus exclusively on solving the packaging challenges of sachet water factories. Water packaging requires zero failure rates: packaging film rolls must seal instantly and cleanly under high machine cycle speeds, and outer bagging sacks must never burst during loading and distribution.
+            </p>
+            <p style="color: var(--text-muted); font-size: 1.05rem;">
+                We manufacture using 100% virgin food-grade low-density polyethylene (LDPE) to guarantee zero odor, complete compliance with food and water regulatory standards, and maximum tensile resilience.
+            </p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-box">
+                <div class="icon">💧</div>
+                <h3>Form-Fill-Seal Roll Film</h3>
+                <p>Standard 320mm width rolls engineered with uniform gauge thickness to run jam-free through single-head and twin-head automatic packaging machines.</p>
+            </div>
+            <div class="feature-box">
+                <div class="icon">🛍️</div>
+                <h3>Heavy-Duty Outer Sacks</h3>
+                <p>Puncture-resistant bundling bags designed to carry 20 water sachets through rigorous warehouse handling and transit.</p>
+            </div>
+            <div class="feature-box">
+                <div class="icon">🖨️</div>
+                <h3>Custom Rotogravure Printing</h3>
+                <p>High-resolution multi-color printing reproducing your brand identity, batch numbers, and regulatory certification seals with sharp clarity.</p>
+            </div>
+        </div>
+
+        <div class="hero-card" style="background: var(--surface); border: 1px solid var(--border); color: var(--text-main); margin-top: 1rem;">
+            <h3>Ready to Supply Your Pure Water Factory?</h3>
+            <p style="color: var(--text-muted); margin-bottom: 1rem;">Whether you need weekly roll supplies or bulk outer packing bags, our production lines are built to fulfill your schedule.</p>
+            <a href="/#direct-order" class="btn btn-primary">Place Direct Factory Order</a>
+        </div>
+    </main>
+
+    <!-- Floating Automated Customer Bot Widget -->
+    <div id="jirmass-chat-widget">
+        <button id="chat-toggle-btn" class="chat-toggle" title="Chat with Jirmass Automated Assistant">
+            <span>💬</span>
+            <span class="chat-toggle-dot"></span>
+        </button>
+        <div id="chat-window" class="chat-window hidden">
+            <div class="chat-header">
+                <div class="chat-header-info">
+                    <h3>Jirmass Water Packaging Bot</h3>
+                    <div class="chat-status">
+                        <span class="admin-badge-dot"></span>
+                        <span>Admin Away • Auto-Reply Active</span>
+                    </div>
+                </div>
+                <button id="chat-close-btn" class="chat-close-btn" aria-label="Close Chat">&times;</button>
+            </div>
+            <div id="chat-messages" class="chat-messages"></div>
+            <div class="chat-chips">
+                <button type="button" class="chip-btn" onclick="sendChatChip('Tell me about water packing rolls')">💧 Packing Rolls</button>
+                <button type="button" class="chip-btn" onclick="sendChatChip('Tell me about water packing bags')">🛍️ Packing Bags</button>
+                <button type="button" class="chip-btn" onclick="sendChatChip('How do I place a direct order?')">✍️ Direct Order</button>
+                <button type="button" class="chip-btn" onclick="sendChatChip('What are your delivery timelines?')">🚚 Delivery & Hours</button>
+            </div>
+            <form id="chat-form" class="chat-input-form">
+                <input type="text" id="chat-input" class="chat-input" placeholder="Ask about rolls, bags, or order..." autocomplete="off" required>
+                <button type="submit" class="chat-send-btn">Send</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>Jirmass Plastics</h4>
+                <p>Specialized manufacturers of virgin LDPE Water Packing Rolls and heavy-duty Water Packing Bags for pure water bottling factories.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <a href="/">Home</a>
+                <a href="/#direct-order">Place Direct Order</a>
+                <a href="/about">About Manufacturing</a>
+                <a href="/contact">Contact Factory Sales</a>
+            </div>
+            <div class="footer-col">
+                <h4>Factory Operations</h4>
+                <p>Support Hours: Mon - Fri, 8AM - 5PM</p>
+                <p>Automated Order Desk: Active 24/7</p>
+                <p>Inquiries: sales@jirmassplastics.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; {{.CurrentYear}} Jirmass Plastics. Specialized Water Packaging Materials.</p>
+        </div>
+    </footer>
+
+    <script src="/static/js/bot.js"></script>
+</body>
 </html>
